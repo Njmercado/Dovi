@@ -15,17 +15,22 @@
           <v-btn color="primary" class="ml-8 text-lowercase" rounded>información</v-btn>
         </div>
       </v-row>
-      <nuxt />
+      <nuxt style="min-height: 75vh"/>
+      <v-row justify="center" align="center" class="px-8 py-4">
+        <v-btn color="secondary" class="ml-8 text-lowercase" rounded>terminar selección</v-btn>
+        <v-btn color="secondary" class="ml-8 text-lowercase" @click="nextStep" rounded>siguiente</v-btn>
+      </v-row>
     </v-main>
   </v-app>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      color: true //dark
+      color: true, //dark
+      steps: ["map", "sex", "age", "civil_status"],
+      currentStep: 0
     }
   },
   computed: {
@@ -35,7 +40,6 @@ export default {
   },
   methods: {
     changeColor() {
-      console.log(this.color)
       if (this.color) {
         this.$vuetify.theme.dark = true
         this.$vuetify.theme.light = false
@@ -44,7 +48,12 @@ export default {
         this.$vuetify.theme.light = true
       }
       this.color = !this.color
+    },
+    nextStep() {
+      const nextStep = this.steps[this.currentStep]
+      this.$store.commit('step/next', nextStep)
+      this.currentStep += 1
     }
-  }
+  },
 }
 </script>
