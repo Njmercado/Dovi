@@ -18,7 +18,7 @@
       <nuxt style="min-height: 75vh"/>
       <v-row justify="center" align="center" class="px-8 py-4">
         <v-btn color="secondary" class="ml-8 text-lowercase" rounded>terminar selección</v-btn>
-        <v-btn color="secondary" class="ml-8 text-lowercase" @click="nextStep" rounded>siguiente</v-btn>
+        <v-btn color="secondary" class="ml-8 text-lowercase" @click="nextStep" rounded :disabled="disableNextButton">siguiente</v-btn>
       </v-row>
     </v-main>
   </v-app>
@@ -26,17 +26,21 @@
 
 <script>
 export default {
-  data() {
-    return {
-      color: true, //dark
-      steps: ["map", "sex", "age", "civil_status"],
-      currentStep: 0
+  data: () => ({
+    color: true, //dark
+    steps: ["mapa", "sexo", "edad", "estado civil", "escolaridad", "clase empleado"],
+    currentStep: 0,
+    disableNextButton: false
+  }),
+  watch: {
+    currentStep(val) {
+      this.disableNextButton = val >= this.steps.length
     }
   },
   computed: {
     theme() {
       return this.$vuetify.theme.dark ? 'dark' : 'light'
-    }
+    },
   },
   methods: {
     changeColor() {
