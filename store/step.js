@@ -1,5 +1,5 @@
 export const state = () => ({
-    step: "map"
+    step: "mapa"
 })
 
 export const mutations = {
