@@ -5,10 +5,12 @@
         {{ step }}
       </div>
       <div class="mt-10">
-        <Map v-if="step === 'map'"></Map>
-        <Sex v-if="step === 'sex'"></Sex>
-        <Age v-if="step === 'age'"></Age>
-        <CivilStatus v-if="step === 'civil_status'"></CivilStatus>
+        <Map v-if="step === 'mapa'"></Map>
+        <Sex v-if="step === 'sexo'"></Sex>
+        <Age v-if="step === 'edad'"></Age>
+        <CivilStatus v-if="step === 'estado civil'"></CivilStatus>
+        <Scholarity v-if="step === 'escolaridad'"></Scholarity>
+        <EmployeeType v-if="step === 'clase empleado'"></EmployeeType>
       </div>
     </v-col>
   </v-row>
@@ -19,6 +21,8 @@ import Map from '../components/Steps/Map'
 import Sex from '../components/Steps/Sex'
 import Age from '../components/Steps/Age'
 import CivilStatus from '../components/Steps/CivilStatus'
+import Scholarity from '../components/Steps/Scholarity'
+import EmployeeType from '../components/Steps/EmployeeType'
 
 export default {
   computed: {
