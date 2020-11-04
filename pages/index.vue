@@ -1,7 +1,7 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" :align="step != 'mapa'? 'start': 'center'">
     <v-col>
-      <div style="margin-top: 90px" class="white--text text-h2 font-bold text-center text-capitalize">
+      <div v-if="step != 'mapa'" style="margin-top: 90px" class="white--text text-h2 font-bold text-center text-capitalize">
         {{ step }}
       </div>
       <div class="mt-10">
