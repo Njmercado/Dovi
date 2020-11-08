@@ -4,13 +4,11 @@
       <v-row
         align="center"
         justify="center"
-        style="height: 100%"
         v-on="on"
         v-bind="attrs"
       >
-        <div class="font-bold text-h6">
-          {{ name }}
-        </div>
+        <v-img src="map/ubicaciones/ubicacion.png" style="max-width: 64px"></v-img>
+        <div class="white--text">{{name}}</div>
       </v-row>
     </template>
     <div
@@ -26,7 +24,6 @@
 
 <script>
 export default {
-  data: () => ({}),
   props: {
     name: { type: String },
     population: { type: String },
