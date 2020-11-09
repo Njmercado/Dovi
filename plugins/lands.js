@@ -6,7 +6,7 @@ const states = [
     image: {
       src: "map/departamentos/antioquia.png",
       class: "absolute",
-      style: "top: 14.7rem; left: 11rem",
+      style: "top: 35%; left: 34%",
       width: "10.8rem"
     },
     childs: [//ciites
@@ -31,7 +31,7 @@ const states = [
     image: {
       src: "map/departamentos/atlantico.png",
       class: "absolute",
-      style: "top: 5.7rem; left: 11.4rem",
+      style: "top: 12%; left: 36%",
       width: "3.5rem"
     },
     childs: [//ciites
@@ -56,7 +56,7 @@ const states = [
     image: {
       src: "map/departamentos/guajira.png",
       class: "absolute",
-      style: "top: 3.5rem; left: 17rem",
+      style: "top: 7%; left: 50%",
       width: "9rem"
     },
     childs: [//ciites
@@ -81,7 +81,7 @@ const states = [
     image: {
       src: "map/departamentos/bolivar.png",
       class: "absolute",
-      style: "top: 10.5rem; left: 13.5rem",
+      style: "top: 24%; left: 41%",
       width: "11.5rem"
     },
     childs: [//ciites
@@ -106,7 +106,7 @@ const states = [
     image: {
       src: "map/departamentos/sucre.png",
       class: "absolute",
-      style: "top: 8.8rem; left: 11rem",
+      style: "top: 20%; left: 35%",
       width: "5.2rem"
     },
     childs: [//ciites
@@ -131,7 +131,7 @@ const states = [
     image: {
       src: "map/departamentos/cordoba.png",
       class: "absolute",
-      style: "top: 10.5rem; left: 9.8rem",
+      style: "top: 25%; left: 32%",
       width: "6rem"
     },
     childs: [//ciites
@@ -156,7 +156,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 7rem; left: 12.8rem",
+      style: "top: 15%; left: 39.5%",
       width: "8rem"
     },
     childs: [//ciites
@@ -181,7 +181,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 16rem; left: 7.1rem",
+      style: "top: 40%; left: 26%",
       width: "8rem"
     },
     childs: [//ciites
@@ -206,7 +206,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 7rem; left: 15rem",
+      style: "top: 16%; left: 45%",
       width: "8rem"
     },
     childs: [//ciites
@@ -231,7 +231,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 11rem; left: 16.4rem",
+      style: "top: 26%; left: 49%",
       width: "8rem"
     },
     childs: [//ciites
@@ -256,7 +256,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 14.5rem; left: 15.4rem",
+      style: "top: 35%; left: 45%",
       width: "8rem"
     },
     childs: [//ciites
@@ -281,7 +281,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 14.5rem; left: 21rem",
+      style: "top: 34%; left: 60%",
       width: "8rem"
     },
     childs: [//ciites
@@ -306,7 +306,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 17rem; left: 20rem",
+      style: "top: 42%; left: 57%",
       width: "8rem"
     },
     childs: [//ciites
@@ -331,7 +331,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 17.4rem; left: 15.8rem",
+      style: "top: 41%; left: 48%",
       width: "8rem"
     },
     childs: [//ciites
@@ -356,7 +356,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 18.2rem; left: 14rem",
+      style: "top: 45%; left: 41%",
       width: "8rem"
     },
     childs: [//ciites
@@ -381,7 +381,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 21rem; left: 11.5rem",
+      style: "top: 50%; left: 36%",
       width: "8rem"
     },
     childs: [//ciites
@@ -406,7 +406,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 20rem; left: 10.3rem",
+      style: "top: 47.5%; left: 33%",
       width: "8rem"
     },
     childs: [//ciites
@@ -431,7 +431,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 18.2rem; left: 9.4rem",
+      style: "top: 43.5%; left: 31%",
       width: "8rem"
     },
     childs: [//ciites
@@ -456,7 +456,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 18rem; left: 10.8rem",
+      style: "top: 43%; left: 35%",
       width: "8rem"
     },
     childs: [//ciites
@@ -481,7 +481,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 21.8rem; left: 8rem",
+      style: "top: 52%; left: 28%",
       width: "8rem"
     },
     childs: [//ciites
@@ -506,7 +506,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 24rem; left: 7.7rem",
+      style: "top: 59%; left: 27%",
       width: "8rem"
     },
     childs: [//ciites
@@ -531,7 +531,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 26.5rem; left: 5.5rem",
+      style: "top: 64%; left: 21%",
       width: "8rem"
     },
     childs: [//ciites
@@ -556,7 +556,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 29rem; left: 11rem",
+      style: "top: 71%; left: 35%",
       width: "8rem"
     },
     childs: [//ciites
@@ -581,7 +581,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 28rem; left: 14rem",
+      style: "top: 69%; left: 45%",
       width: "8rem"
     },
     childs: [//ciites
@@ -606,7 +606,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 24rem; left: 11rem",
+      style: "top: 57%; left: 35%",
       width: "8rem"
     },
     childs: [//ciites
@@ -631,7 +631,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 22rem; left: 17rem",
+      style: "top: 54%; left: 48%",
       width: "8rem"
     },
     childs: [//ciites
@@ -656,7 +656,7 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 18.5rem; left: 25rem",
+      style: "top: 44%; left: 68%",
       width: "8rem"
     },
     childs: [//ciites
@@ -681,7 +681,82 @@ const states = [
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
-      style: "top: 380px; left: 410px",
+      style: "top: 56%; left: 73%",
+      width: "8rem"
+    },
+    childs: [//ciites
+      {
+        name: 'Santa Marta',
+        population: '5000000',
+        cases: "510000",
+        childs: [ //neightborhoods
+          {
+            name: 'Aguas 10',
+            population: '1000000',
+            cases: "10000",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Guaviare',
+    population: '10000000',
+    cases: "5000000",
+    image: {
+      src: "map/departamentos/magdalena.png",
+      class: "absolute",
+      style: "top: 61%; left: 54%",
+      width: "8rem"
+    },
+    childs: [//ciites
+      {
+        name: 'Santa Marta',
+        population: '5000000',
+        cases: "510000",
+        childs: [ //neightborhoods
+          {
+            name: 'Aguas 10',
+            population: '1000000',
+            cases: "10000",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Vaupes',
+    population: '10000000',
+    cases: "5000000",
+    image: {
+      src: "map/departamentos/magdalena.png",
+      class: "absolute",
+      style: "top: 68%; left: 62%",
+      width: "8rem"
+    },
+    childs: [//ciites
+      {
+        name: 'Santa Marta',
+        population: '5000000',
+        cases: "510000",
+        childs: [ //neightborhoods
+          {
+            name: 'Aguas 10',
+            population: '1000000',
+            cases: "10000",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Amazonas',
+    population: '10000000',
+    cases: "5000000",
+    image: {
+      src: "map/departamentos/magdalena.png",
+      class: "absolute",
+      style: "top: 80%; left: 60%",
       width: "8rem"
     },
     childs: [//ciites
