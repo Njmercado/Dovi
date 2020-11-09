@@ -1,7 +1,7 @@
 <template>
   <div class="px-8">
     <div v-if="!chosenState">
-      <v-img src="map/colombia.png" width="512px">
+      <v-img src="map/colombia.png" contain :aspect-ratio="1">
         <v-tooltip
           v-for="(item, index) in chosenItem"
           :key="index"
@@ -89,6 +89,9 @@ export default {
 }
 .absolute {
   position: absolute;
+}
+.fixed {
+  position: fixed;
 }
 
 .z-index-1 {
