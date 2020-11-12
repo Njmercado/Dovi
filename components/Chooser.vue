@@ -3,17 +3,13 @@
     <v-row id="chooser-input">
       <input v-model="chosenItem" type="text" :placeholder="chosenItem" readonly />
       <v-btn id="chooser-icon" @click="showOptions = !showOptions">
-        <v-icon id="icon" color="white"
-          >mdi-arrow-down-drop-circle-outline</v-icon
-        >
+        <v-icon id="icon" color="white">mdi-arrow-down-drop-circle-outline</v-icon>
       </v-btn>
     </v-row>
     <v-row>
       <v-col v-if="showOptions" id="items">
         <div id="items-container">
-          <v-row id="item" @click="chosenItem = item; showOptions = !showOptions" v-for="(item, index) in items" :key="index">{{
-            item
-          }}</v-row>
+          <v-row id="item" @click="setChosenItem(item)" v-for="(item, index) in items" :key="index">{{item}}</v-row>
         </div>
       </v-col>
     </v-row>
@@ -23,9 +19,16 @@
 <script>
 export default {
   data: () => ({
-    chosenItem: '',
     showOptions: false,
+    chosenItem: '',
   }),
+  methods: {
+    setChosenItem (val) {
+      this.chosenItem = val
+      this.showOptions = !this.showOptions
+      this.$emit('chosen', val)
+    }
+  },
   props: { items: { type: Array }, label: {type: String} },
 }
 </script>
