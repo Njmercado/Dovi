@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
-    <v-col xs="8" sm="8" md="6" lg="4">
-      <Chooser :items="items" label="estado civil"></Chooser>
+    <v-col xs="8" sm="8" md="8" lg="8">
+      <Chooser @chosen="chosenItem" :items="items" label="estado civil"></Chooser>
     </v-col>
   </v-row>
 </template>
@@ -11,8 +11,12 @@ import Chooser from '../Chooser'
 export default {
   data: () => ({
     items: ['Casado', 'Soltero', 'Divorciado', 'Soltero', 'Union libre', 'Viudo'],
-    chosenItem: '',
   }),
+  methods: {
+    chosenItem(val) {
+      this.$emit('chosen', val)
+    }
+  },
   components: {
     Chooser,
   },
