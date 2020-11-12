@@ -1,35 +1,55 @@
 export const state = () => ({
     filter: {
-        filterState: "",
-        town: "",
-        neighborhood: "",
-        sex: "",
-        age: "",
-        civilStatus: "",
-        levelOfScholarity: ""
+        place: {
+            state: "",
+            town: "",
+            neighborhood: "",
+        },
+        filter: {
+            sex: "",
+            age: "",
+            civilStatus: "",
+            levelOfScholarity: "",
+            employeeType: "",
+            weapon: "",
+        },
+        showBy: "", 
+        filterResults: {}
     }
 })
 
 export const mutations = {
-    filterState(state, value) {
-        state.filter.filterState = value
+    state(state, value) {
+        state.filter.place.state = value
     },
     town(state, value) {
-        state.filter.town = value
+        state.filter.place.town = value
     },
     neighborhood(state, value) {
-        state.filter.neighborhood = value
+        state.filter.place.neighborhood = value
     },
-    sex(state, value) {
-        state.filter.sex = value
+    sexo(state, value) {
+        state.filter.filter.sex = value
     },
-    age(state, value) {
-        state.filter.age = value
+    edad(state, value) {
+        state.filter.filter.age = value
     },
-    civilStatus(state, value) {
-        state.filter.civilStatus = value
+    "estado civil": function(state, value) {
+        state.filter.filter.civilStatus = value
     },
-    levelOfScholarity(state, value) {
-        state.filter.levelOfScholarity = value
+    "clase empleado": function(state, value) {
+        state.filter.filter.employeeType = value
     },
+    escolaridad(state, value) {
+        state.filter.filter.levelOfScholarity = value
+    },
+    arma(state, value) {
+        state.filter.filter.weapon = value
+    },
+    showBy(state, value) {
+        state.filter.showBy = value
+    },
+    filterResults(state, value) {
+        state.filter.filterResults = value
+    }
 }
