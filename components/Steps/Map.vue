@@ -56,6 +56,7 @@
 <script>
 import MapItem from '../MapItem'
 import { states } from '../../plugins/lands.js'
+import { casesByState } from '../../plugins/doviAPI'
 
 export default {
   data: () => ({
@@ -68,13 +69,22 @@ export default {
   },
   methods: {
     setData(item) {
-      if (this.dataIndex === 0)
-        this.$store.commit('filter/filterState', item.name)
-      if (this.dataIndex === 1) this.$store.commit('filter/town', item.name)
-      if (this.dataIndex === 2)
-        this.$store.commit('filter/neighbohood', item.name)
+      if (this.dataIndex === 0) this.handleStates(item.name)
+      if (this.dataIndex === 1) this.handleTowns(item.name)
+      if (this.dataIndex === 2) this.handleNeighborhoods(item.name)
       this.chosenItem = item.childs
       this.chosenState = true
+    },
+    async handleStates(state) {
+        this.$store.commit('filter/filterState', state)
+        const results = await casesByState(state)
+        this.$store.commit('filter/filterResults', results)
+    },
+    handleTowns(town) {
+        this.$store.commit('filter/town', town)
+    },
+    handleNeighborhoods(neighbohood) {
+        this.$store.commit('filter/neighborhood', neighbohood)
     },
   },
   components: {
@@ -89,22 +99,6 @@ export default {
 }
 .absolute {
   position: absolute;
-}
-.fixed {
-  position: fixed;
-}
-
-.z-index-1 {
-  z-index: 1;
-}
-.z-index-2 {
-  z-index: 2;
-}
-.z-index-3 {
-  z-index: 3;
-}
-.z-index-4 {
-  z-index: 4;
 }
 
 .state-image {
