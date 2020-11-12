@@ -25,7 +25,7 @@ const states = [
     ],
   },
   {
-    name: 'Atlantico',
+    name: 'Atlántico',
     population: '1000000',
     cases: "100000",
     image: {
