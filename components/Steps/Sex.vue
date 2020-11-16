@@ -10,7 +10,7 @@
 import Chooser from '../Chooser'
 export default {
   data: () => ({
-    items: ['Hombre', 'Mujer', 'Otro', 'Hombre', 'Mujer', 'Otro'],
+    items: ['MASCULINO', 'FEMENINO', 'OTRO'],
   }),
   methods: {
     chosenItem(val) {

@@ -13,11 +13,16 @@ export default {
     items: [
       'Dia',
       'Mes',
-      'Sexo'
+      'Sexo',
+      'Arma',
     ],
   }),
   methods: {
     chosenItem(val) {
+      if(val === 'Dia') val = 'DayName'
+      if(val === 'Mes') val = 'Month'
+      if(val === 'Sexo') val = 'Sex'
+      if(val === 'Arma') val = 'Weapon'
       this.$emit('show', val)
     }
   },
