@@ -4,19 +4,41 @@
       Información
     </div>
     <div id="information">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat
-      augue id urna pellentesque, ac aliquam ipsum tempus. Donec posuere
-      vulputate neque, vitae feugiat purus rutrum facilisis. Donec hendrerit
-      luctus justo, egestas.
+      Somos un grupo de amigos, entusiastas del desarrollo y la innovación. Este
+      proyecto es el resultado del arduo trabajo realizado durante 4 meses,
+      brindando una herramienta sencilla, pero sofisticada, que te permitirá
+      visualizar estadistica, y predictivamente, los casos de
+      <strong>Violencia Intrafamiliar</strong> en Colombia desde el año
+      <strong>2014</strong> hasta el año <strong>2019</strong>. Con esta
+      herramienta serás capaz de asimilar todos los casos, registrados, mediante
+      diversidad de filtros y lugares, dando así una mayor visibilidad de la
+      problematica actual. <br />
+      Esta herramienta tambien cuenta con un sistema predictivo que te permitirá
+      conocer, según algunas caracteristicas, si una persona puede ser victima
+      de violencia, ademas de brindar la posibilidad de predecir caracteriscas,
+      no conocidas, a partir de las ya dadas.
     </div>
-    <v-row style="position: absolute; bottom: 20%; left: 15%">
-      <div v-for="(item, index) in owners" :key="index">
-        <v-avatar class="mt-4 ml-4 mr-4" color="blue" size="128">
-          <v-img :src="item.image"></v-img>
-        </v-avatar>
-        <div class="font-weight-bold">{{ item.name }}</div>
-        <v-icon id="icon" color="white">mdi-arrow-down-drop-circle-outline</v-icon>
-      </div>
+    <v-row
+      justify="center"
+      align="center"
+      style="position: absolute; bottom: 10%"
+    >
+      <v-col class="card-container" v-for="(item, index) in owners" :key="index" xs="6" sm="6" md="4" lg="4">
+        <v-card color="#514FCD" style="border-radius: 16px; color: white">
+          <div class="info">
+            <v-card-text>GitHub</v-card-text>
+            <v-card-text>Linkedin</v-card-text>
+          </div>
+          <div class="card">
+            <v-card-title>
+              <v-avatar class="mt-4 ml-4 mr-4" size="128">
+                <v-img :src="item.image"></v-img>
+              </v-avatar>
+            </v-card-title>
+            <div class="font-weight-bold">{{ item.name }}</div>
+          </div>
+        </v-card>
+      </v-col>
     </v-row>
   </v-navigation-drawer>
 </template>
@@ -28,22 +50,16 @@ export default {
     owners: [
       {
         name: 'Nino Mercado',
-        description:
-          'lorem ipsum non asdfadf adsf asdf as fas fasd fasdfasf asdf asdf adf adfasfa',
         image:
           'https://avatars2.githubusercontent.com/u/26421737?s=460&u=0f285470742b3baa7cbc527d75342eec9681b3d0&v=4',
       },
       {
         name: 'Abraham Lugo',
-        description:
-          'lorem ipsum non asdfadf adsf asdf as fas fasd fasdfasf asdf asdf adf adfasfa',
         image:
           'https://avatars3.githubusercontent.com/u/48779532?s=460&u=5e5a418e601b7fa94a23d285b1b008b3731fbc04&v=4',
       },
       {
         name: 'Kebin Ramirez',
-        description:
-          'lorem ipsum non asdfadf adsf asdf as fas fasd fasdfasf asdf asdf adf adfasfa',
         image:
           'https://avatars0.githubusercontent.com/u/25647105?s=460&u=2258b47f548dbed25a0050663bcf612bce7dcfa3&v=4',
       },
@@ -73,5 +89,31 @@ export default {
   #drawer {
     min-width: 50%;
   }
+}
+
+.card {
+  display: block;
+  position: relative;
+}
+
+.card-container:hover .info {
+  flex-direction: column;
+  justify-content: center;
+  opacity: 1;
+}
+
+.info {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  transition-property: opacity;
+  transition-duration: .5s;
 }
 </style>
