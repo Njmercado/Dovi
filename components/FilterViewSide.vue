@@ -13,7 +13,7 @@
         <Scholarity @chosen="setChosenFilterData" v-if="kindOfFilter === 'Escolaridad'"></Scholarity>
         <EmployeeType @chosen="setChosenFilterData" v-if="kindOfFilter === 'Clase Empleado'"></EmployeeType>
       </div>
-      <div id="showBy" v-if="currentStep === 3">
+      <div id="filterToShowBy" v-if="currentStep === 3">
         <ShowByFilter @show="setChosenShowByFilter"/>
       </div>
     </div>
@@ -61,12 +61,6 @@ export default {
     }
   },
   methods: {
-    async sendRequest() {
-      const placeData = this.$store.filter.filter.place
-      const filterData = this.$store.filter.filter.filter
-      const showBy = this.$store.filter.filter.showBy
-      const result = await apiHandler(placeData, filterData, showBy)
-    },
     setKindOfFilter(val) {
       this.kindOfFilter = val
       this.filters[2] = val
@@ -93,11 +87,17 @@ export default {
       this.$store.commit(`filter/${chosenFilter}`, val)
     },
     setChosenShowByFilter(val) {
-      const showBy = val.toLowerCase()
-      this.$store.commit(`filter/showBy`, showBy)
+      this.$store.commit(`filter/showBy`, val)
 
       // Pongo esta función aquí ya que esta es la ultima opción del filtro
       this.sendRequest()
+    },
+    async sendRequest() {
+      const placeData = this.$store.state.filter.filter.place
+      const filterData = this.$store.state.filter.filter.filter
+      const showBy = this.$store.state.filter.filter.showBy
+      const result = await apiHandler({place: placeData, filter: filterData, showBy: showBy})
+      this.$store.commit('filter/filterResults', result)
     },
   },
   components: {
