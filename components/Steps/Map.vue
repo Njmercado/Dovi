@@ -74,11 +74,12 @@ export default {
       if (this.dataIndex === 2) this.handleNeighborhoods(item.name)
       this.chosenItem = item.childs
       this.chosenState = true
+      this.dataIndex += 1
     },
     async handleStates(state) {
-        this.$store.commit('filter/filterState', state)
-        const results = await casesByState(state)
-        this.$store.commit('filter/filterResults', results)
+        this.$store.commit('filter/state', state)
+        // const results = await casesByState(state)
+        // this.$store.commit('filter/filterResults', results)
     },
     handleTowns(town) {
         this.$store.commit('filter/town', town)
