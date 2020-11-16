@@ -97,7 +97,7 @@ export default {
       const filterData = this.$store.state.filter.filter.filter
       const showBy = this.$store.state.filter.filter.showBy
       const result = await apiHandler({place: placeData, filter: filterData, showBy: showBy})
-      this.$store.commit('filter/filterResults', result)
+      this.$store.commit('filter/results', result)
     },
   },
   components: {

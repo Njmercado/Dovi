@@ -14,7 +14,7 @@ export const state = () => ({
             weapon: "",
         },
         showBy: "", 
-        filterResults: {}
+        results: {}
     }
 })
 
@@ -49,7 +49,7 @@ export const mutations = {
     showBy(state, value) {
         state.filter.showBy = value
     },
-    filterResults(state, value) {
-        state.filter.filterResults = value
+    results(state, value) {
+        state.filter.results = value
     }
 }

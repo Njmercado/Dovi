@@ -48,8 +48,8 @@ export default {
     },
   }),
   watch: {
-    '$store.state.filter.filter.filterResults': function() {
-      this.resetChartData(this.$store.state.filter.filter.filterResults.data)
+    '$store.state.filter.filter.results': function() {
+      this.resetChartData(this.$store.state.filter.filter.results.data)
     }
   },
   async mounted(){
