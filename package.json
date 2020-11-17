@@ -10,7 +10,7 @@
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "test": "jest",
-    "heroku-postbuild": "npm run build"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@nuxtjs/vuetify": "^1.11.2",
