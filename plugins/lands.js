@@ -1,8 +1,8 @@
 const states = [
   {
     name: 'Antioquia',
-    population: '1000000',
-    cases: "100000",
+    population: '6768388',
+    cases: "39278",
     image: {
       src: "map/departamentos/antioquia.png",
       class: "absolute",
@@ -26,8 +26,8 @@ const states = [
   },
   {
     name: 'Atlántico',
-    population: '1000000',
-    cases: "100000",
+    population: '2573591',
+    cases: "11302",
     image: {
       src: "map/departamentos/atlantico.png",
       class: "absolute",
@@ -51,8 +51,8 @@ const states = [
   },
   {
     name: 'Guajira',
-    population: '10000000',
-    cases: "5000000",
+    population: '1067063',
+    cases: "2038",
     image: {
       src: "map/departamentos/guajira.png",
       class: "absolute",
@@ -75,9 +75,9 @@ const states = [
     ],
   },
   {
-    name: 'Bolivar',
-    population: '10000000',
-    cases: "5000000",
+    name: 'Bolívar',
+    population: '2195495',
+    cases: "8995",
     image: {
       src: "map/departamentos/bolivar.png",
       class: "absolute",
@@ -101,8 +101,8 @@ const states = [
   },
   {
     name: 'Sucre',
-    population: '10000000',
-    cases: "5000000",
+    population: '885835',
+    cases: "4976",
     image: {
       src: "map/departamentos/sucre.png",
       class: "absolute",
@@ -125,9 +125,9 @@ const states = [
     ],
   },
   {
-    name: 'Cordoba',
-    population: '10000000',
-    cases: "5000000",
+    name: 'Córdoba',
+    population: '1813854',
+    cases: "5537",
     image: {
       src: "map/departamentos/cordoba.png",
       class: "absolute",
@@ -151,8 +151,8 @@ const states = [
   },
   {
     name: 'Magdalena',
-    population: '10000000',
-    cases: "5000000",
+    population: '1312428',
+    cases: "5582",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -176,8 +176,8 @@ const states = [
   },
   {
     name: 'Chocó',
-    population: '10000000',
-    cases: "5000000",
+    population: '520296',
+    cases: "817",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -201,8 +201,8 @@ const states = [
   },
   {
     name: 'Cesar',
-    population: '10000000',
-    cases: "5000000",
+    population: '1077770',
+    cases: "3197",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -226,8 +226,8 @@ const states = [
   },
   {
     name: 'Norte de Santander',
-    population: '10000000',
-    cases: "5000000",
+    population: '1402695',
+    cases: "8571",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -251,8 +251,8 @@ const states = [
   },
   {
     name: 'Santander',
-    population: '10000000',
-    cases: "5000000",
+    population: '2100704',
+    cases: "21610",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -276,8 +276,8 @@ const states = [
   },
   {
     name: 'Arauca',
-    population: '10000000',
-    cases: "5000000",
+    population: '273321',
+    cases: "1674",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -301,8 +301,8 @@ const states = [
   },
   {
     name: 'Casanare',
-    population: '10000000',
-    cases: "5000000",
+    population: '381554',
+    cases: "2971",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -326,8 +326,8 @@ const states = [
   },
   {
     name: 'Boyacá',
-    population: '10000000',
-    cases: "5000000",
+    population: '1284375',
+    cases: "14427",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -351,8 +351,8 @@ const states = [
   },
   {
     name: 'Cundinamarca',
-    population: '10000000',
-    cases: "5000000",
+    population: '2845668',
+    cases: "115075",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -376,8 +376,8 @@ const states = [
   },
   {
     name: 'Tolima',
-    population: '10000000',
-    cases: "5000000",
+    population: '1423715',
+    cases: "8547",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -400,9 +400,9 @@ const states = [
     ],
   },
   {
-    name: 'Quindio',
-    population: '10000000',
-    cases: "5000000",
+    name: 'Quindío',
+    population: '578268',
+    cases: "2219",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -426,8 +426,8 @@ const states = [
   },
   {
     name: 'Risaralda',
-    population: '10000000',
-    cases: "5000000",
+    population: '972978',
+    cases: "8281",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -451,8 +451,8 @@ const states = [
   },
   {
     name: 'Caldas',
-    population: '10000000',
-    cases: "5000000",
+    population: '995822',
+    cases: "4041",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -476,8 +476,8 @@ const states = [
   },
   {
     name: 'Cauca',
-    population: '10000000',
-    cases: "5000000",
+    population: '1426938',
+    cases: "8429",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -500,9 +500,9 @@ const states = [
     ],
   },
   {
-    name: 'Valle del Cauca',
-    population: '10000000',
-    cases: "5000000",
+    name: 'Valle',
+    population: '4804489',
+    cases: "34439",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -526,8 +526,8 @@ const states = [
   },
   {
     name: 'Nariño',
-    population: '10000000',
-    cases: "5000000",
+    population: '1830473',
+    cases: "9724",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -551,8 +551,8 @@ const states = [
   },
   {
     name: 'Putumayo',
-    population: '10000000',
-    cases: "5000000",
+    population: '363597',
+    cases: "1366",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -576,8 +576,8 @@ const states = [
   },
   {
     name: 'Caquetá',
-    population: '10000000',
-    cases: "5000000",
+    population: '502410',
+    cases: "2343",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -601,8 +601,8 @@ const states = [
   },
   {
     name: 'Huila',
-    population: '10000000',
-    cases: "5000000",
+    population: '1211163',
+    cases: "9317",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -626,8 +626,8 @@ const states = [
   },
   {
     name: 'Meta',
-    population: '10000000',
-    cases: "5000000",
+    population: '1035256',
+    cases: "10274",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -651,8 +651,8 @@ const states = [
   },
   {
     name: 'Vichada',
-    population: '10000000',
-    cases: "5000000",
+    population: '79134',
+    cases: "194",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -675,9 +675,9 @@ const states = [
     ],
   },
   {
-    name: 'Guainia',
-    population: '10000000',
-    cases: "5000000",
+    name: 'Guainía',
+    population: '44134',
+    cases: "227",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -701,8 +701,8 @@ const states = [
   },
   {
     name: 'Guaviare',
-    population: '10000000',
-    cases: "5000000",
+    population: '117494',
+    cases: "397",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -725,9 +725,9 @@ const states = [
     ],
   },
   {
-    name: 'Vaupes',
-    population: '10000000',
-    cases: "5000000",
+    name: 'Vaupés',
+    population: '45367',
+    cases: "210",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
@@ -751,8 +751,8 @@ const states = [
   },
   {
     name: 'Amazonas',
-    population: '10000000',
-    cases: "5000000",
+    population: '79739',
+    cases: "710",
     image: {
       src: "map/departamentos/magdalena.png",
       class: "absolute",
