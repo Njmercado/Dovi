@@ -3,7 +3,7 @@
     <v-row justify="space-between" align="center" class="px-8">
       <v-img src="logo.png" max-width="20%" contain></v-img>
       <div>
-        <v-btn :color="$vuetify.theme.themes['light'].background" class="text-lowercase white--text" rounded>predecir</v-btn>
+        <v-btn :color="$vuetify.theme.themes['light'].background" @click="openPredict" class="text-lowercase white--text" rounded>predecir</v-btn>
         <v-btn
           :color="$vuetify.theme.themes['light'].background"
           class="text-lowercase white--text"
@@ -64,6 +64,9 @@ export default {
       else this.chart = 'donut'
       this.chartdata.labels = data[0] 
       this.chartdata.datasets[0].data = data[1] 
+    },
+    openPredict() {
+      this.$router.push('/predecir')
     }
   },
   components: {
