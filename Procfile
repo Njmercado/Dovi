@@ -1,1 +1,1 @@
-web: nuxt-ts start
+web: npm run start
