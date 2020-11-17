@@ -4,6 +4,40 @@ let url_dev = "https://dovi-api.herokuapp.com"
 // const heroku_url = "https://dovi-api.herokuapp.com"
 // const aws_url = "http://54.224.32.155:5000"
 
+async function formatPlacesResponse(data){
+    const places = data[0]
+    const values = data[1]
+    let response = []
+    places.forEach((val, index) => {
+        response.push({
+            //Hago esto porque los municipios con un (CT) al final no son reconocidos en el backend, vaya uno a saber porque.
+            name: val.split("(")[0],
+            cases: values[index].toString(),
+        })
+    })
+
+    return response
+}
+
+async function getTownsOfState(state) {
+    state = state.toUpperCase()
+    const endpoint = `/byTown/${state}`
+    const url = `${url_dev}${endpoint}`
+    let result = await axios.get(url)
+    result = formatPlacesResponse(result.data)
+    return result
+}
+
+async function getNeighborhoodsOfTown(state, town) {
+    state = state.toUpperCase()
+    town = town.toUpperCase()
+    const endpoint = `/byNeighborhood/${state}/${town}`
+    const url = `${url_dev}${endpoint}`
+    let result = await axios.get(url)
+    result = formatPlacesResponse(result.data)
+    return result
+}
+
 async function getAllCases() {
     const endpoint = '/bySex'
     const url = `${url_dev}${endpoint}`
@@ -64,4 +98,6 @@ module.exports = {
     apiHandler: apiHandler,
     casesByCountry: getCasesByCountry,
     getCasesBy: getCasesBy,
+    towns: getTownsOfState,
+    neighborhoods: getNeighborhoodsOfTown,
 }

@@ -56,7 +56,7 @@
 <script>
 import MapItem from '../MapItem'
 import { states } from '../../plugins/lands.js'
-import { casesByState } from '../../plugins/doviAPI'
+import { casesByState, towns, neighborhoods } from '../../plugins/doviAPI'
 
 export default {
   data: () => ({
@@ -72,19 +72,21 @@ export default {
       if (this.dataIndex === 0) this.handleStates(item.name)
       if (this.dataIndex === 1) this.handleTowns(item.name)
       if (this.dataIndex === 2) this.handleNeighborhoods(item.name)
-      this.chosenItem = item.childs
       this.chosenState = true
-      this.dataIndex += 1
+      this.dataIndex = this.dataIndex < 2 ? this.dataIndex + 1 : this.dataIndex 
     },
     async handleStates(state) {
         this.$store.commit('filter/state', state)
+        this.chosenItem = await towns(state)
         // const results = await casesByState(state)
         // this.$store.commit('filter/filterResults', results)
     },
-    handleTowns(town) {
+    async handleTowns(town) {
         this.$store.commit('filter/town', town)
+        const state = this.$store.state.filter.filter.place.state
+        this.chosenItem = await neighborhoods(state, town)
     },
-    handleNeighborhoods(neighbohood) {
+    async handleNeighborhoods(neighbohood) {
         this.$store.commit('filter/neighborhood', neighbohood)
     },
   },
