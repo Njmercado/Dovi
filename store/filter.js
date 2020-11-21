@@ -7,10 +7,10 @@ export const state = () => ({
         },
         filter: {
             sex: "",
-            age: "",
-            civilStatus: "",
-            levelOfScholarity: "",
-            employeeType: "",
+            ageRange: "",
+            civil: "",
+            scholarship: "",
+            employee: "",
             weapon: "",
         },
         showBy: "", 
@@ -32,16 +32,16 @@ export const mutations = {
         state.filter.filter.sex = value
     },
     edad(state, value) {
-        state.filter.filter.age = value
+        state.filter.filter.ageRange = value
     },
     "estado civil": function(state, value) {
-        state.filter.filter.civilStatus = value
+        state.filter.filter.civil = value
     },
     "clase empleado": function(state, value) {
-        state.filter.filter.employeeType = value
+        state.filter.filter.employee = value
     },
     escolaridad(state, value) {
-        state.filter.filter.levelOfScholarity = value
+        state.filter.filter.scholarship = value
     },
     arma(state, value) {
         state.filter.filter.weapon = value
@@ -51,5 +51,8 @@ export const mutations = {
     },
     results(state, value) {
         state.filter.results = value
+    },
+    cleanFilter(state, val) {
+        Object.keys(state.filter.filter).map(key => state.filter.filter[key] = "")
     }
 }
