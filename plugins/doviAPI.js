@@ -4,6 +4,14 @@ let url_dev = "https://dovi-api.herokuapp.com"
 // const heroku_url = "https://dovi-api.herokuapp.com"
 // const aws_url = "http://54.224.32.155:5000"
 
+async function predictField(data) {
+    const endpoint = '/predic'
+    const endpointData = `/${data.age}/${data.sex}/${data.civilStatus}/${data.employeeType}/${data.scholarship}`
+    const url = `${url_dev}${endpoint}${endpointData}`
+    const result = await axios.get(url)
+    return result
+}
+
 async function formatPlacesResponse(data){
     const places = data[0]
     const values = data[1]
@@ -79,6 +87,7 @@ function capitalize(data) {
 
 async function apiHandler({place, filter, showBy="Sex"}) {
     // To uppercase
+    console.log(filter)
     place = Object.keys(place).map(i => place[i].toUpperCase())
     const state = place[0] || ''
     const town = place[1] || ''
@@ -87,10 +96,12 @@ async function apiHandler({place, filter, showBy="Sex"}) {
     const filterName = capitalize(chosenKey[0]) || ''
     const filterValue = filter[chosenKey[0]] || ''
 
-    if(neighborhood === '' && town === '' && state === '')
+    if(neighborhood === '' && town === '' && state === '') {
         return await getCasesByCountry(showBy)
-    else
+    }
+    else{
         return await getCasesBy(state, town, neighborhood, filterName, filterValue, showBy)
+    }
 }
 
 module.exports = {
@@ -100,4 +111,5 @@ module.exports = {
     getCasesBy: getCasesBy,
     towns: getTownsOfState,
     neighborhoods: getNeighborhoodsOfTown,
+    predictField: predictField,
 }
