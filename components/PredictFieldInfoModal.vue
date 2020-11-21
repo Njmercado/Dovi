@@ -4,12 +4,13 @@
       <v-card-title>
         <v-row justify='center'>
           <div id='titulo' style="font-size: 1.2em">
-            Información
+            Campo predecido
           </div>
         </v-row>
       </v-card-title>
       <v-card-text>
-        hola
+        Con un accuracy del 70% usando el método de Naives, para predecir un campo en especifico, podemos 
+        decir que el campo obtenido es <strong>{{data}}</strong>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -17,15 +18,16 @@
 
 <script>
 export default {
-  name: 'Modal',
   props: [
     'open',
+    'data'
   ],
   data: () => ({
     realModalOpener: false
   }),
   watch: {
     open (val) {
+      console.log("open modal")
       this.realModalOpener = this.realModalOpener ? this.realModalOpener : true
     }
   }
