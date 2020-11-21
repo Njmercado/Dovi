@@ -10,7 +10,7 @@
 import Chooser from '../Chooser'
 export default {
   data: () => ({
-    items: ['Casado', 'Soltero', 'Divorciado', 'Soltero', 'Union libre', 'Viudo'],
+    items: ['CASADO', 'DIVORCIADO', 'SOLTERO', 'UNION LIBRE', 'VIUDO', 'SEPARADO'],
   }),
   methods: {
     chosenItem(val) {
