@@ -8,10 +8,11 @@
       <KindOfFilter @filter="setKindOfFilter" v-if="currentStep === 1"></KindOfFilter>
       <div id="listOfFilters" v-if="currentStep === 2">
         <Sex @chosen="setChosenFilterData" v-if="kindOfFilter === 'Sexo'"></Sex>
-        <Age @chosen="setChosenFilterData" v-if="kindOfFilter === 'Edad'"></Age>
+        <Age @age="setChosenFilterData" v-if="kindOfFilter === 'Edad'"></Age>
         <CivilStatus @chosen="setChosenFilterData" v-if="kindOfFilter === 'Estado Civil'"></CivilStatus>
         <Scholarity @chosen="setChosenFilterData" v-if="kindOfFilter === 'Escolaridad'"></Scholarity>
         <EmployeeType @chosen="setChosenFilterData" v-if="kindOfFilter === 'Clase Empleado'"></EmployeeType>
+        <Weapon @chosen="setChosenFilterData" v-if="kindOfFilter === 'Arma'"></Weapon>
       </div>
       <div id="filterToShowBy" v-if="currentStep === 3">
         <ShowByFilter @show="setChosenShowByFilter"/>
@@ -28,6 +29,7 @@
 import Map from './Steps/Map'
 import Sex from './Steps/Sex'
 import Age from './Steps/Age'
+import Weapon from './Steps/Weapon'
 import CivilStatus from './Steps/CivilStatus'
 import Scholarity from './Steps/Scholarity'
 import EmployeeType from './Steps/EmployeeType'
@@ -84,6 +86,7 @@ export default {
     },
     setChosenFilterData(val) {
       const chosenFilter = this.filters[2].toLowerCase()
+      this.$store.commit('filter/cleanFilter', true)
       this.$store.commit(`filter/${chosenFilter}`, val)
     },
     setChosenShowByFilter(val) {
