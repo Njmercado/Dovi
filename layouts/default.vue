@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
 
-      <nuxt style="min-height: 75vh"/>
+      <nuxt style="min-height: 100vh"/>
 
     </v-main>
   </v-app>
