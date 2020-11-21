@@ -1,7 +1,7 @@
 <template>
   <v-col id="chooser">
     <v-row id="chooser-input">
-      <input v-model="chosenItem" type="text" :placeholder="chosenItem" readonly />
+      <input v-model="chosenItem" type="text" :placeholder="chosenItem || label" readonly />
       <v-btn id="chooser-icon" @click="showOptions = !showOptions">
         <v-icon id="icon" color="white">mdi-arrow-down-drop-circle-outline</v-icon>
       </v-btn>
@@ -22,6 +22,7 @@ export default {
     showOptions: false,
     chosenItem: '',
   }),
+  props: ['label'],
   methods: {
     setChosenItem (val) {
       this.chosenItem = val
@@ -63,6 +64,7 @@ export default {
 
 #items {
   position: absolute;
+  z-index: 100;
 }
 #items {
   background-color: white;
