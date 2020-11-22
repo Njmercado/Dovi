@@ -33,10 +33,10 @@
           rounded>predecir</v-btn>
       </v-row>
     </v-navigation-drawer>
-    <PredictFieldInfoModal
+    <PredictDomesticViolenceInfoModal
       :open="openModal"
       :data="modalData"
-    ></PredictFieldInfoModal>
+    ></PredictDomesticViolenceInfoModal>
   </div>
 </template>
 
@@ -109,9 +109,8 @@ export default {
       }
 
       const result = await predictDomesticViolence(data)
-      console.log(result)
-      // this.modalData = result.data
-      // this.openModal = !this.openModal
+      this.modalData = await result.data
+      this.openModal = await !this.openModal
     },
     beforeStep() {
       this.step -= 1
