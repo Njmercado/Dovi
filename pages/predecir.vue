@@ -41,6 +41,7 @@
     </v-col>
     <SidePanel :open="openInfoModal"></SidePanel>
     <PredictActionFieldSidePanel :open="openPredictActionFieldSidePanel"></PredictActionFieldSidePanel>
+    <PredictDomesticViolenceSidePanel :open="openPredictDomesticViolenceSidePanel"></PredictDomesticViolenceSidePanel>
   </v-row>
 </template>
 
@@ -48,14 +49,17 @@
 import PredictViewSide from '../components/PredictViewSide'
 import SidePanel from '../components/SidePanel'
 import PredictActionFieldSidePanel from '../components/PredictActionFieldSidePanel'
+import PredictDomesticViolenceSidePanel from '../components/PredictDomesticViolenceSidePanel'
 
 export default {
   data: () => ({
     openInfoModal: false,
     openPredictActionFieldSidePanel: false,
+    openPredictDomesticViolenceSidePanel: false,
   }),
   methods: {
     domesticViolence() {
+      this.openPredictDomesticViolenceSidePanel = !this.openPredictDomesticViolenceSidePanel
     },
     predictField() {
       this.openPredictActionFieldSidePanel = !this.openPredictActionFieldSidePanel

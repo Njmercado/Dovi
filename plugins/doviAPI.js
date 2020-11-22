@@ -12,6 +12,15 @@ async function predictField(data) {
     return result
 }
 
+async function predictDomesticViolence(data) {
+    const endpoint = '/numeroCasos'
+    const endpointData = `/${data.state}/${data.town}/${data.neighborhood}/${data.day}/${data.age}/${data.sex}/${data.place}`
+    const url = `${url_dev}${endpoint}${endpointData}`
+    console.log(url)
+    const result = await axios.get(url)
+    return result
+}
+
 async function formatPlacesResponse(data){
     const places = data[0]
     const values = data[1]
@@ -112,4 +121,5 @@ module.exports = {
     towns: getTownsOfState,
     neighborhoods: getNeighborhoodsOfTown,
     predictField: predictField,
+    predictDomesticViolence: predictDomesticViolence,
 }
