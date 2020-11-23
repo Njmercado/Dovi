@@ -16,7 +16,7 @@
       <div v-if="showFields">
         <div style="text-align: left"  class="text-h4 font-weight-bold white--text"> Predecir {{chosenFieldToPredict}}</div>
         <v-col style="margin-top: 10px">
-          <Age v-if="chosenFieldToPredict !== 'Edad'" :only="true" @begin="setAge"></Age>
+          <Age v-if="chosenFieldToPredict !== 'Edad'" :only="true" @age="setAge"></Age>
           <Sex v-if="chosenFieldToPredict !== 'Sexo'" @chosen="setSex"></Sex>
           <CivilStatus v-if="chosenFieldToPredict !== 'Estado Civil'" @chosen="setCivilStatus"></CivilStatus>
           <EmployeeType v-if="chosenFieldToPredict !== 'Tipo Empleado'" @chosen="setEmployeeType"></EmployeeType>
