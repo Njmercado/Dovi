@@ -9,7 +9,7 @@
     </v-btn>
     <div v-if="dataIndex === 0">
       <v-img src="map/colombia.png" contain :aspect-ratio="1">
-        <v-tooltip style="padding: 0px; opacity: 1" v-for="(item, index) in chosenItem"
+        <v-tooltip style="padding: 0px; opacity: 1" v-for="(item, index) in responseOfChosenItem"
           :key="index" top
         >
           <template v-slot:activator="{ on, attrs }">
@@ -35,11 +35,11 @@
         <Searcher
           @result="handleSearchResult"
           :clearCache="clearSearcherCache"
-          :items="chosenItem"></Searcher>
+          :items="responseOfChosenItem"></Searcher>
       </div>
       <v-row justify="center" align="center">
         <v-col xs="4" sm="3" md="3" lg="3" xl="2" justify="center" align="center"
-          v-for="(item, index) in chosenItem"
+          v-for="(item, index) in slicedResponseOfChosenItem"
           :key="index"
         >
           <div @click="setData(item)">
@@ -51,7 +51,18 @@
           </div>
         </v-col>
       </v-row>
+      <v-pagination
+        v-model="page"
+        :length="pagesNumber"
+        color="#67BE9E"
+        class="mt-10" circle></v-pagination>
     </v-col>
+    <v-row
+      v-if="dataIndex >= 3"
+      class="white--text text-h4"
+      justify="center"
+      align="center"
+      style="min-height: 70vh"> {{chosenPlace}} </v-row>
   </div>
 </template>
 
@@ -64,15 +75,24 @@ import { casesByState, towns, neighborhoods } from '../../plugins/doviAPI'
 export default {
   data: () => ({
     chosenItem: {},
+    responseOfChosenItem: [],
     dataIndex: 0,
+    chosenPlace: "", //Funciona para mostrar el lugar escogido(barrio, municipio y departamento)
     map: {
       towns: [],
       neighbohoods: []
     },
-    clearSearcherCache: false
+    clearSearcherCache: false,
+    page: 1,
+    pagesNumber: 5,
   }),
   mounted() {
     this.handleCountry()
+  },
+  computed: {
+    slicedResponseOfChosenItem() {
+      return this.responseOfChosenItem.slice(this.page-1, this.page+11)
+    }
   },
   watch: {
     async dataIndex(val) {
@@ -81,6 +101,7 @@ export default {
       if (val === 2) await this.handleTowns(this.chosenItem.name)
       if (val === 3) await this.handleNeighborhoods(this.chosenItem.name)
       this.clearSearcherCache = !this.clearSearcherCache
+      this.pagesNumber = Math.ceil(this.responseOfChosenItem.length / 9)
     },
   },
   methods: {
@@ -92,42 +113,42 @@ export default {
     },
     async handleStates(state) {
       if(this.map.towns.length === 0){
+        this.chosenPlace = `${state}`
         this.$store.commit('filter/state', state)
-        this.chosenItem = await towns(state)
-        this.map.towns = this.chosenItem
+        this.responseOfChosenItem = await towns(state)
+        this.map.towns = this.responseOfChosenItem
       } else {
-        this.chosenItem = this.map.towns
+        this.responseOfChosenItem = this.map.towns
         // Reset neighborhoods
         this.map.neighbohoods = []
       }
     },
     async handleTowns(town) {
       if(this.map.neighbohoods.length === 0){
+        this.chosenPlace = `${town}-${this.chosenPlace}`
         this.$store.commit('filter/town', town)
         const state = this.$store.state.filter.filter.place.state
-        this.chosenItem = await neighborhoods(state, town)
-        this.map.neighbohoods = this.chosenItem
+        this.responseOfChosenItem = await neighborhoods(state, town)
+        this.map.neighbohoods = this.responseOfChosenItem
       } else {
-        this.chosenItem = this.map.neighbohoods
+        this.responseOfChosenItem = this.map.neighbohoods
       }
     },
     async handleNeighborhoods(neighbohood) {
+      this.chosenPlace = `${neighbohood}, ${this.chosenPlace}`
       this.$store.commit('filter/neighborhood', neighbohood)
     },
     async handleCountry() {
-      this.chosenItem = states
+      this.responseOfChosenItem = states
       this.map.towns = []
     },
     backToItem() {
       this.dataIndex -= 1
     },
     handleSearchResult(val){ 
-      this.chosenItem = val
+      this.responseOfChosenItem = val
     }
-  },
-  components: {
-    MapItem,
-  },
+  }
 }
 </script>
 
