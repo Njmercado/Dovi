@@ -30,6 +30,7 @@
         </v-tooltip>
       </v-img>
     </div>
+    <!-- Show the list of tows y neighs -->
     <v-col v-if="dataIndex > 0 && dataIndex < 3" align="center">
       <div style="max-width: 70%; margin-top: 10px">
         <Searcher
@@ -57,6 +58,7 @@
         color="#67BE9E"
         class="mt-10" circle></v-pagination>
     </v-col>
+    <!-- Show the final chosen place -->
     <v-row
       v-if="dataIndex >= 3"
       class="white--text text-h4"
@@ -101,8 +103,10 @@ export default {
       if (val === 2) await this.handleTowns(this.chosenItem.name)
       if (val === 3) await this.handleNeighborhoods(this.chosenItem.name)
       this.clearSearcherCache = !this.clearSearcherCache
-      this.pagesNumber = Math.ceil(this.responseOfChosenItem.length / 9)
     },
+    responseOfChosenItem(val){
+      this.pagesNumber = Math.ceil(val.length / 9)
+    }
   },
   methods: {
     setData(item) {
@@ -110,6 +114,10 @@ export default {
       // No asignar información cuando este seleccione un barrio,
       // ya que es información que se sale de nuestras mano.
       this.chosenItem = item
+    },
+    async handleCountry() {
+      this.responseOfChosenItem = states
+      this.map.towns = []
     },
     async handleStates(state) {
       if(this.map.towns.length === 0){
@@ -119,8 +127,8 @@ export default {
         this.map.towns = this.responseOfChosenItem
       } else {
         this.responseOfChosenItem = this.map.towns
-        // Reset neighborhoods
-        this.map.neighbohoods = []
+        // Reset towns
+        this.map.towns = []
       }
     },
     async handleTowns(town) {
@@ -132,16 +140,16 @@ export default {
         this.map.neighbohoods = this.responseOfChosenItem
       } else {
         this.responseOfChosenItem = this.map.neighbohoods
+        // Reset neighborhoods
+        this.map.neighbohoods = []
       }
     },
     async handleNeighborhoods(neighbohood) {
       this.chosenPlace = `${neighbohood}, ${this.chosenPlace}`
       this.$store.commit('filter/neighborhood', neighbohood)
     },
-    async handleCountry() {
-      this.responseOfChosenItem = states
-      this.map.towns = []
-    },
+    // Funciona para retroceder en el mapa, es decir pasar de barrios a
+    // municipio; de municipio a departamento y así sucesivamente
     backToItem() {
       this.dataIndex -= 1
     },
