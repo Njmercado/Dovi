@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="space-between" align="center" class="px-8">
-      <v-img src="logo.png" max-width="20%" contain></v-img>
+      <v-img style="cursor: pointer" @click="openHome" src="logo.png" max-width="20%" contain></v-img>
       <div>
         <v-btn :color="$vuetify.theme.themes['light'].background" @click="openPredict" class="text-lowercase white--text" rounded>predecir</v-btn>
         <v-btn
@@ -67,6 +67,9 @@ export default {
     },
     openPredict() {
       this.$router.push('/predecir')
+    },
+    openHome() {
+      location.reload()
     }
   },
   components: {
