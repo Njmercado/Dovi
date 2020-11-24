@@ -16,7 +16,6 @@ async function predictDomesticViolence(data) {
     const endpoint = '/numeroCasos'
     const endpointData = `/${data.state}/${data.town}/${data.neighborhood}/${data.day}/${data.age}/${data.sex}/${data.place}`
     const url = `${url_dev}${endpoint}${endpointData}`
-    console.log(url)
     const result = await axios.get(url)
     return result
 }
@@ -73,8 +72,8 @@ async function getCasesBy(state, town, neighborhood, filter, filterValue, showBy
 
     if(showBy === 'DayName' && filter === '' && state === '' && town === '' && filterValue === '') showBy = 'dayname'
 
-    filter = filter.length != 0 ? `/by${filter}` : ''
-    showBy= showBy.length != 0 ? `_by${showBy}` : ''
+    filter = filter.length != 0 ? `/by${filter}_` : '/'
+    showBy= showBy.length != 0 ? `by${showBy}` : ''
     state = state.length != 0 ? `/${state}` : ''
     town = town.length != 0 ? `/${town}` : ''
     neighborhood = neighborhood.length != 0 ? `/${neighborhood}` : ''
@@ -96,7 +95,6 @@ function capitalize(data) {
 
 async function apiHandler({place, filter, showBy="Sex"}) {
     // To uppercase
-    console.log(filter)
     place = Object.keys(place).map(i => place[i].toUpperCase())
     const state = place[0] || ''
     const town = place[1] || ''
