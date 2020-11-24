@@ -14,7 +14,10 @@
     <v-row justify="center" align="center" style="min-height: 85vh">
       <LineChart v-if="loaded && chart === 'line'" :chartData="chartdata"></LineChart>
       <BarChart v-if="loaded && chart === 'bar'" :chartData="chartdata"></BarChart>
-      <DonutChart v-if="loaded && chart === 'donut'" :chartData="chartdata"></DonutChart>
+      <DonutChart
+        v-if="loaded && chart === 'donut'"
+        :key="Math.random()*(1000-10)+10"
+        :chartData="chartdata"></DonutChart>
     </v-row>
     <SidePanel :open="openInfoModal"></SidePanel>
   </div>
@@ -75,7 +78,7 @@ export default {
   methods: {
     resetChartData(data) {
       if(data[0].length >= 5) this.chart = 'bar'
-      if(data[0].length >= 15) this.chart = 'line'
+      if(data[0].length >= 10) this.chart = 'line'
       else this.chart = 'donut'
       this.chartdata.labels = data[0] 
       this.chartdata.datasets[0].data = data[1] 
