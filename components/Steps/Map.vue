@@ -1,19 +1,20 @@
 <template>
   <div class="px-8">
-    <div v-if="!chosenState">
+    <!-- boton para regresar en el mapa -->
+    <!-- Si el usuario ha seleccionado un departamento -->
+    <v-btn v-if="dataIndex > 0" @click="backToItem()" rounded small class="text-lowercase" color="secondary">
+      <v-icon left dark>mdi-arrow-left</v-icon>
+      <div v-if="dataIndex === 1">departamentos</div>
+      <div v-if="dataIndex === 2">municipios</div>
+    </v-btn>
+    <div v-if="dataIndex === 0">
       <v-img src="map/colombia.png" contain :aspect-ratio="1">
-        <v-tooltip
-          v-for="(item, index) in chosenItem"
-          :key="index"
-          top
-          style="padding: 0px; opacity: 1"
+        <v-tooltip style="padding: 0px; opacity: 1" v-for="(item, index) in chosenItem"
+          :key="index" top
         >
           <template v-slot:activator="{ on, attrs }">
-            <div
-              :style="item.image.style"
-              :class="item.image.class + ' position-point'"
-              v-on="on"
-              v-bind="attrs"
+            <div :style="item.image.style" :class="item.image.class + ' position-point'"
+              v-on="on" v-bind="attrs"
               @click="setData(item)"
             ></div>
           </template>
@@ -29,32 +30,34 @@
         </v-tooltip>
       </v-img>
     </div>
-    <v-row v-else justify="center" align="center">
-      <v-col
-        xs="4"
-        sm="3"
-        md="2"
-        lg="2"
-        xl="2"
-        justify="center"
-        align="center"
-        v-for="(item, index) in chosenItem"
-        :key="index"
-      >
-        <div @click="setData(item)">
-          <MapItem
-            :name="item.name"
-            :cases="item.cases"
-            :population="item.population"
-          ></MapItem>
-        </div>
-      </v-col>
-    </v-row>
+    <v-col v-if="dataIndex > 0 && dataIndex < 3" align="center">
+      <div style="max-width: 70%; margin-top: 10px">
+        <Searcher
+          @result="handleSearchResult"
+          :clearCache="clearSearcherCache"
+          :items="chosenItem"></Searcher>
+      </div>
+      <v-row justify="center" align="center">
+        <v-col xs="4" sm="3" md="3" lg="3" xl="2" justify="center" align="center"
+          v-for="(item, index) in chosenItem"
+          :key="index"
+        >
+          <div @click="setData(item)">
+            <MapItem
+              :name="item.name"
+              :cases="item.cases"
+              :population="item.population"
+            ></MapItem>
+          </div>
+        </v-col>
+      </v-row>
+    </v-col>
   </div>
 </template>
 
 <script>
 import MapItem from '../MapItem'
+import Searcher from '../Searcher'
 import { states } from '../../plugins/lands.js'
 import { casesByState, towns, neighborhoods } from '../../plugins/doviAPI'
 
@@ -62,33 +65,65 @@ export default {
   data: () => ({
     chosenItem: {},
     dataIndex: 0,
-    chosenState: false,
+    map: {
+      towns: [],
+      neighbohoods: []
+    },
+    clearSearcherCache: false
   }),
   mounted() {
-    this.chosenItem = states
+    this.handleCountry()
+  },
+  watch: {
+    async dataIndex(val) {
+      if (val === 0) await this.handleCountry()
+      if (val === 1) await this.handleStates(this.chosenItem.name)
+      if (val === 2) await this.handleTowns(this.chosenItem.name)
+      if (val === 3) await this.handleNeighborhoods(this.chosenItem.name)
+      this.clearSearcherCache = !this.clearSearcherCache
+    },
   },
   methods: {
     setData(item) {
-      if (this.dataIndex === 0) this.handleStates(item.name)
-      if (this.dataIndex === 1) this.handleTowns(item.name)
-      if (this.dataIndex === 2) this.handleNeighborhoods(item.name)
-      this.chosenState = true
-      this.dataIndex = this.dataIndex < 2 ? this.dataIndex + 1 : this.dataIndex 
+      this.dataIndex = this.dataIndex < 3 ? this.dataIndex + 1 : this.dataIndex 
+      // No asignar información cuando este seleccione un barrio,
+      // ya que es información que se sale de nuestras mano.
+      this.chosenItem = item
     },
     async handleStates(state) {
+      if(this.map.towns.length === 0){
         this.$store.commit('filter/state', state)
         this.chosenItem = await towns(state)
-        // const results = await casesByState(state)
-        // this.$store.commit('filter/filterResults', results)
+        this.map.towns = this.chosenItem
+      } else {
+        this.chosenItem = this.map.towns
+        // Reset neighborhoods
+        this.map.neighbohoods = []
+      }
     },
     async handleTowns(town) {
+      if(this.map.neighbohoods.length === 0){
         this.$store.commit('filter/town', town)
         const state = this.$store.state.filter.filter.place.state
         this.chosenItem = await neighborhoods(state, town)
+        this.map.neighbohoods = this.chosenItem
+      } else {
+        this.chosenItem = this.map.neighbohoods
+      }
     },
     async handleNeighborhoods(neighbohood) {
-        this.$store.commit('filter/neighborhood', neighbohood)
+      this.$store.commit('filter/neighborhood', neighbohood)
     },
+    async handleCountry() {
+      this.chosenItem = states
+      this.map.towns = []
+    },
+    backToItem() {
+      this.dataIndex -= 1
+    },
+    handleSearchResult(val){ 
+      this.chosenItem = val
+    }
   },
   components: {
     MapItem,
