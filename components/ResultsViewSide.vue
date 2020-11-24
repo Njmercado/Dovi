@@ -12,8 +12,14 @@
       </div>
     </v-row>
     <v-row justify="center" align="center" style="min-height: 85vh">
-      <LineChart v-if="loaded && chart === 'line'" :chartData="chartdata"></LineChart>
-      <BarChart v-if="loaded && chart === 'bar'" :chartData="chartdata"></BarChart>
+      <LineChart
+        v-if="loaded && chart === 'line'"
+        :key="Math.random()*(1000-10)+10"
+        :chartData="chartdata"></LineChart>
+      <BarChart
+        v-if="loaded && chart === 'bar'"
+        :key="Math.random()*(1000-10)+10"
+        :chartData="chartdata"></BarChart>
       <DonutChart
         v-if="loaded && chart === 'donut'"
         :key="Math.random()*(1000-10)+10"
@@ -77,8 +83,8 @@ export default {
   },
   methods: {
     resetChartData(data) {
-      if(data[0].length >= 5) this.chart = 'bar'
       if(data[0].length >= 10) this.chart = 'line'
+      else if(data[0].length >= 5) this.chart = 'bar'
       else this.chart = 'donut'
       this.chartdata.labels = data[0] 
       this.chartdata.datasets[0].data = data[1] 
