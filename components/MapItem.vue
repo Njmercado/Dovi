@@ -7,8 +7,10 @@
         v-on="on"
         v-bind="attrs"
       >
-        <v-img src="map/ubicaciones/ubicacion.png" style="max-width: 64px"></v-img>
-        <div class="white--text">{{name}}</div>
+        <div style="display: flex; flex-direction: column; align-items: center">
+          <v-img src="map/ubicaciones/ubicacion.png" style="max-width: 50px"></v-img>
+          <div class="white--text">{{name}}</div>
+        </div>
       </v-row>
     </template>
     <div
