@@ -49,7 +49,11 @@ export default {
   },
   methods: {
     age() {
-      this.$emit('age', `${this.beginAge}/${this.endAge}`)
+      if(this.only) {
+        this.$emit('age', this.beginAge)
+      } else {
+        this.$emit('age', `${this.beginAge}/${this.endAge}`)
+      }
     }
   }
 }
