@@ -1,15 +1,17 @@
 const axios = require('axios')
-// let url_dev = "http://localhost:5000"
-let url_dev = "https://dovi-api.herokuapp.com"
+// let url_dev = "https://dovi-api.herokuapp.com"
 // const heroku_url = "https://dovi-api.herokuapp.com"
-// const aws_url = "http://54.224.32.155:5000"
+const url_dev = "http://54.224.32.155:5000"
 
 async function predictField(data) {
     const endpoint = '/predic'
     const endpointData = `/${data.age}/${data.sex}/${data.civilStatus}/${data.employeeType}/${data.scholarship}`
     const url = `${url_dev}${endpoint}${endpointData}`
     const result = await axios.get(url)
-    return result
+    return {
+        field: result.data[0],
+        accuracy: (result.data[1]*100).toFixed(2)
+    }
 }
 
 async function predictDomesticViolence(data) {
