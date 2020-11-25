@@ -103,11 +103,19 @@ export default {
       }
 
       const result = await predictField(data)
-      this.modalData = result.data
+      this.modalData = result
       this.openModal = !this.openModal
+    },
+    cleanFields(){
+      this.age= -1
+      this.sex= '-'
+      this.civilStatus= '-'
+      this.scholarity= '-'
+      this.employeeType= '-'
     },
     returnToChoseField() {
       this.showFields = false
+      this.cleanFields()
     }
   },
   watch: {
