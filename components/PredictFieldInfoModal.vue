@@ -9,8 +9,8 @@
         </v-row>
       </v-card-title>
       <v-card-text>
-        Con un accuracy del 70% usando el método de Naives, para predecir un campo en especifico, podemos 
-        decir que el campo obtenido es <strong>{{data}}</strong>
+        Con un accuracy del <strong>{{data.accuracy}}%</strong> usando el método de Naives, para predecir un campo en especifico, podemos 
+        decir que el campo obtenido es <strong>{{data.field}}</strong>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -27,7 +27,7 @@ export default {
   }),
   watch: {
     open (val) {
-      console.log("open modal")
+      console.log(this.data)
       this.realModalOpener = this.realModalOpener ? this.realModalOpener : true
     }
   }
