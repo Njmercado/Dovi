@@ -15,6 +15,9 @@ export default {
       'Mes',
       'Sexo',
       'Arma',
+      'Escolaridad',
+      'Clase Empleado',
+      'Estado Civil',
     ],
   }),
   methods: {
@@ -23,6 +26,9 @@ export default {
       if(val === 'Mes') val = 'Month'
       if(val === 'Sexo') val = 'Sex'
       if(val === 'Arma') val = 'Weapon'
+      if(val === 'Escolaridad') val = 'Scholarship'
+      if(val === 'Clase Empleado') val = 'Employee'
+      if(val === 'Estado Civil') val = 'Civil'
       this.$emit('show', val)
     }
   },

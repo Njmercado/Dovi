@@ -14,15 +14,15 @@
     <v-row justify="center" align="center" style="min-height: 85vh">
       <LineChart
         v-if="loaded && chart === 'line'"
-        :key="Math.random()*(1000-10)+10"
+        :key="randomKey"
         :chartData="chartdata"></LineChart>
       <BarChart
         v-if="loaded && chart === 'bar'"
-        :key="Math.random()*(1000-10)+10"
+        :key="ramdonKey"
         :chartData="chartdata"></BarChart>
       <DonutChart
         v-if="loaded && chart === 'donut'"
-        :key="Math.random()*(1000-10)+10"
+        :key="randomKey"
         :chartData="chartdata"></DonutChart>
     </v-row>
     <SidePanel :open="openInfoModal"></SidePanel>
@@ -41,6 +41,7 @@ export default {
     openInfoModal: false,
     loaded: false,
     chart: 'donut',
+    randomKey: 0,
     chartdata: {
       labels: [],
       datasets: [
@@ -67,6 +68,7 @@ export default {
   watch: {
     '$store.state.filter.filter.results': function() {
       this.resetChartData(this.$store.state.filter.filter.results.data)
+      this.randomKey = Math.random()*(1000-10)+10
     }
   },
   async mounted(){
