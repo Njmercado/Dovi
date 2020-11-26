@@ -26,8 +26,8 @@
       <v-col class="card-container" v-for="(item, index) in owners" :key="index" xs="6" sm="6" md="4" lg="4">
         <v-card color="#514FCD" style="border-radius: 16px; color: white">
           <div class="info">
-            <v-card-text>GitHub</v-card-text>
-            <v-card-text>Linkedin</v-card-text>
+            <v-card-text @click="openGithub(item.github)">GitHub</v-card-text>
+            <v-card-text @click="openLinkedin(item.linkedin)">Linkedin</v-card-text>
           </div>
           <div class="card">
             <v-card-title>
@@ -52,16 +52,22 @@ export default {
         name: 'Nino Mercado',
         image:
           'https://avatars2.githubusercontent.com/u/26421737?s=460&u=0f285470742b3baa7cbc527d75342eec9681b3d0&v=4',
+        github: "https://github.com/njmercado",
+        linkedin: "https://www.linkedin.com/in/nino-mercado-48b513147/"
       },
       {
         name: 'Abraham Lugo',
         image:
           'https://avatars3.githubusercontent.com/u/48779532?s=460&u=5e5a418e601b7fa94a23d285b1b008b3731fbc04&v=4',
+        github: "https://github.com/AbrahamLugoRamirez",
+        linkedin: "https://www.linkedin.com/in/abraham-lugo-ramirez-b63a6618b/"
       },
       {
         name: 'Kebin Ramirez',
         image:
           'https://avatars0.githubusercontent.com/u/25647105?s=460&u=2258b47f548dbed25a0050663bcf612bce7dcfa3&v=4',
+        github: "https://github.com/kebinRamirez",
+        linkedin: "https://www.linkedin.com/in/kebin-ramirez-gomez-873b3a1bb"
       },
     ],
   }),
@@ -73,13 +79,23 @@ export default {
       this.openNavigation = this.openNavigation ? this.openNavigation : true
     },
   },
+  methods: {
+    openGithub(val) {
+      window.open(val, '_blank')
+    },
+    openLinkedin(val) {
+      window.open(val, '_blank')
+    },
+  }
 }
 </script>
 
 <style scoped>
 #information {
   padding: 12px;
-  text-align: left;
+  /* text-align: left; */
+  text-align:justify;
+  text-justify: inter-word;
 }
 
 #drawer {
