@@ -64,7 +64,7 @@ export default {
 
 #items {
   position: absolute;
-  z-index: 100;
+  z-index: 2;
 }
 #items {
   background-color: white;
